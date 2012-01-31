@@ -1903,12 +1903,18 @@ int isArticleLinkSelected(int x,int y)
 	    origin_y < PREVIOUS_ARTICLE_LINKABLE_SIZE)
 	{
 		display_article_with_pcf(-SCROLL_PAGE_JUMP);
+		show_scroll_bar(1);
+		delay_us(200000);  // debounce hack
+		show_scroll_bar(0);
 		return -2; // PAGE_UP_LINK
 	}
 	if (display_mode == DISPLAY_MODE_ARTICLE && LCD_WIDTH - PREVIOUS_ARTICLE_LINKABLE_SIZE < x &&
 	    LCD_HEIGHT - PREVIOUS_ARTICLE_LINKABLE_SIZE <= origin_y && origin_y < LCD_HEIGHT)
 	{
 		display_article_with_pcf(SCROLL_PAGE_JUMP);
+		show_scroll_bar(1);
+		delay_us(200000);  // debounce hack
+		show_scroll_bar(0);
 		return -3; // PAGE_DOWN_LINK
 	}
 
