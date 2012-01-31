@@ -193,6 +193,7 @@
 #define LANGUAGE_LINK_WIDTH_GAP 6
 #define LANGUAGE_LINK_HEIGHT_GAP 6
 #define HIGHLIGHT_SCROLLING_SPOT_HEIGHT 6
+#define SCROLL_PAGE_JUMP 190
 
 // The italic fonts may not define the bitmaps for all characters.
 // The characters that are minssing in the italic fonts will try to return the bitmaps of it's supplement_font file.

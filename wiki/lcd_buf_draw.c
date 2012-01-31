@@ -1899,6 +1899,18 @@ int isArticleLinkSelected(int x,int y)
 	{
 		return 2; // HIDE_LANGUAGE_LINK
 	}
+	if (display_mode == DISPLAY_MODE_ARTICLE && LCD_WIDTH - PREVIOUS_ARTICLE_LINKABLE_SIZE < x &&
+	    origin_y < PREVIOUS_ARTICLE_LINKABLE_SIZE)
+	{
+		display_article_with_pcf(-SCROLL_PAGE_JUMP);
+		return -2; // PAGE_UP_LINK
+	}
+	if (display_mode == DISPLAY_MODE_ARTICLE && LCD_WIDTH - PREVIOUS_ARTICLE_LINKABLE_SIZE < x &&
+	    LCD_HEIGHT - PREVIOUS_ARTICLE_LINKABLE_SIZE <= origin_y && origin_y < LCD_HEIGHT)
+	{
+		display_article_with_pcf(SCROLL_PAGE_JUMP);
+		return -3; // PAGE_DOWN_LINK
+	}
 
 	start_i = 0;
 	end_i = article_link_count - 1;
